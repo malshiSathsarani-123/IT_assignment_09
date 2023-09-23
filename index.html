@@ -6,8 +6,10 @@
     <style>
         body{
             position: relative;
+            background-color: black;
         }
         div{
+            z-index: 9999;
             width: 100px;
             height: 50px;
             border: 3px solid black;
@@ -46,7 +48,7 @@
     </section>
 </main>
 
-
+<audio src="assets/audio/audio.mp3/audio.mp3" id="audio"></audio>
 
 <script src="assets/lib/jquery.min.js"></script>
 
@@ -84,12 +86,14 @@
     $("#start").on("click",()=>{
         if (interval_id === null){
         interval_id = setInterval(updateLightPanel,100);
+        $("#audio")[0].play();
         }
     });
     $("#stop").on("click",()=>{
         $(".light").css("background","white")
         clearInterval(interval_id)
         interval_id = null;
+        $("#audio")[0].pause();
     });
 
 </script>
